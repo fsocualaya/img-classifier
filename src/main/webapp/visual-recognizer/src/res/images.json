@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Beer",
+    "url": "https://gestion.pe/resizer/3PhLwzKJg11JWwDFKSL8SFwXK4M=/1200x900/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/F66LOM3WYVBOFEHYBGJSH3KZHY.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Soccer",
+    "url": "https://i.pinimg.com/originals/4a/c8/62/4ac862a6b269b4138ee7660683c9d0cf.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Landscape",
+    "url": "https://www.ibizasunapartments.com/media/k2/items/cache/461011bcaf5b5e723e897c33f049f169_XL.jpg?t=20190422_150008"
+  },
+  {
+    "id": 4,
+    "name": "Tequila",
+    "url": "https://plazavea.vteximg.com.br/arquivos/ids/197276-450-450/1207249002.jpg"
+  }
+]
