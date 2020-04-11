@@ -7,34 +7,39 @@ import Card from 'react-bootstrap/Card'
 
 const Image = (props) => {
     const [url,setUrl] = useState("")
-    const [classes,setClases] = useState([])
+    const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        setUrl(props.url)
+        if(props.url !== "") {
+            setUrl(props.url)
+        }
     }, [props.url])
 
-    useEffect(()=> {
-        const reco = Recognize(url).then((response) => {
-            const res = response.json()
-            const clasifiear = res.images[0].classifiers[0].classes;
-            return clasifiear;
-        })
-        setClases(reco);
-    },[url])
 
-    const Recognize = async () => {
-        return await fetch('http://localhost:8080/recognize?url=' + url)
+    const onClick = () => {
+        Recognizer();
     }
+
+    const Recognizer = async () => {
+        const clas =  await fetch('http://localhost:8080/recognize?url=' + url).then((res) => {
+                const newRes =  res.json();
+                return newRes.images[0].classifiers[0].classes;
+            }
+        )
+        setClasses(clas);
+    };
+
 
     return(
         <div>
             <Card style={{ width: '18rem' }} key={props.id}>
                 <p>{props.name}</p>
                 <img alt={props.id} src={props.url} className="pic" />
-                <Button onClick={Recognize}> Recognize </Button>
+                <Button onClick={onClick}> Recognize </Button>
             </Card>
                 <ul>
-                    { classes ? classes.map((item,index)=> {return <li key={index}>{item.xclass}</li>}) : "" }
+                    {classes ? classes.map((item,index) => {return <li key={index}>{item.xclass}</li>}) : "" 
+                    }
                 </ul>
         </div>
     )
